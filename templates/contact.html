@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Contact | FusionTECH Dynamics{% endblock %}
+{% block description %}Contact FusionTECH Dynamics about aerospace, UAV, avionics, simulation, AI, or embedded engineering requirements.{% endblock %}
+{% block content %}
+<section class="page-hero contact-hero">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="container narrow reveal">
+    <span class="eyebrow">Engineering inquiries</span>
+    <h1>Discuss your system or <span class="text-gradient">technical requirement.</span></h1>
+    <p>Share your platform, subsystem, research objective, simulation need, or integration challenge. We will reply at the email address you provide.</p>
+  </div>
+</section>
+<section class="section contact-section">
+  <div class="container contact-layout">
+    <aside class="contact-aside reveal">
+      <h2>Start with the engineering objective.</h2>
+      <p>A useful inquiry can include the application, current development stage, interfaces involved, expected support, and any schedule constraints.</p>
+      <div class="contact-detail"><span>@</span><div><small>Email directly</small><a href="mailto:ch.fahadrazzaq22@gmail.com">ch.fahadrazzaq22@gmail.com</a></div></div>
+      <div class="contact-detail"><span>↗</span><div><small>Typical response</small><strong>Within 1-2 business days</strong></div></div>
+      <div class="availability"><span class="status-dot"></span><p><strong>Engineering inquiries welcome</strong><br>For UAV, avionics, simulation, AI, and embedded systems.</p></div>
+    </aside>
+
+    <form class="contact-form reveal" id="contact-form" data-endpoint="http://127.0.0.1:8081/contact.php" novalidate>
+      <div class="form-row">
+        <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="name" maxlength="80" required><small class="field-error" data-error-for="name"></small></div>
+        <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" maxlength="160" required><small class="field-error" data-error-for="email"></small></div>
+      </div>
+      <div class="field"><label for="subject">Area of interest</label><input id="subject" name="subject" type="text" maxlength="140" placeholder="UAV, avionics, HIL/SIL, embedded system..." required><small class="field-error" data-error-for="subject"></small></div>
+      <div class="field"><label for="message">Requirement details</label><textarea id="message" name="message" rows="7" maxlength="5000" placeholder="Describe the system, technical objective, current stage, interfaces, and expected support..." required></textarea><small class="field-error" data-error-for="message"></small></div>
+      <div class="honeypot" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+      <button class="btn btn-primary submit-btn" type="submit"><span>Send message</span><span aria-hidden="true">↗</span></button>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      <p class="form-note">Your details are used only to respond to this inquiry.</p>
+    </form>
+  </div>
+</section>
+{% endblock %}

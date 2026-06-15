@@ -1,0 +1,38 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="{{ url_for('home') }}">
+        <img class="brand-logo" src="{{ url_for('static', filename='img/log.png') }}" alt="">
+        <span>Fusion<span class="text-gradient">TECH</span> <small>Dynamics</small></span>
+      </a>
+      <p>Engineering intelligent aerospace, autonomous, simulation, and embedded systems for demanding applications.</p>
+    </div>
+    <div>
+      <h2 class="footer-title">Company</h2>
+      <ul class="footer-links">
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('services') }}">Services</a></li>
+        <li><a href="{{ url_for('projects') }}">Projects</a></li>
+        <li><a href="{{ url_for('blog') }}">Insights</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="footer-title">Capabilities</h2>
+      <ul class="footer-links">
+        <li>UAV engineering</li>
+        <li>Avionics & control</li>
+        <li>HIL/SIL simulation</li>
+        <li>Embedded & AI systems</li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="footer-title">Engineering inquiries</h2>
+      <a class="footer-email" href="mailto:ch.fahadrazzaq22@gmail.com">ch.fahadrazzaq22@gmail.com</a>
+      <a class="btn btn-secondary btn-small" href="{{ url_for('contact') }}">Discuss a requirement</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>&copy; {{ current_year }} FusionTECH Dynamics. All rights reserved.</p>
+    <a href="#main-content">Back to top ↑</a>
+  </div>
+</footer>
