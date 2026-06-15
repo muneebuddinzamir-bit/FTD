@@ -201,17 +201,26 @@
       });
       const data = await response.json().catch(() => ({}));
 
-      if (!response.ok || !data.success) {
-        showErrors(data.errors);
-        throw new Error(data.message || "We could not send your message. Please try again.");
+      if (!response.ok) {
+        const fieldErrors = {};
+        if (Array.isArray(data.errors)) {
+          data.errors.forEach((item) => {
+            if (item.field) fieldErrors[item.field] = item.message;
+          });
+        }
+        showErrors(fieldErrors);
+        const summary = Array.isArray(data.errors)
+          ? data.errors.map((item) => item.message).join(" ")
+          : "";
+        throw new Error(summary || data.error || "We could not send your message. Please try again.");
       }
 
       form.reset();
-      status.textContent = data.message || "Thanks. Your message has been sent.";
+      status.textContent = "Thanks. Your message has been sent.";
       status.classList.add("success");
     } catch (error) {
       status.textContent = error.message === "Failed to fetch"
-        ? "The local mail service is unavailable. Start the PHP server and try again."
+        ? "Network error. Please check your connection and try again."
         : error.message;
       status.classList.add("error");
     } finally {
